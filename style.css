@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hue: 250;
+
+  --bg-primay: hsl(var(--hue), 22%, 20%);
+  --fc-primary: hsl(var(--hue), 0%, 100%);
+  --fc-secondary: hsl(var(--hue) 50%, 80%);
+
+  --fs-heading: 4rem;
+  --fs-body: 1.6rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+header {
+  animation: topdown 900ms;
+}
+
+main {
+  animation: downtop 900ms backwards;
+}
+
+body {
+  background: var(--bg-primay);
+  font-family: 'Epilogue', sans-serif;
+
+  text-align: center;
+}
+
+.page {
+  max-width: 33rem;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+header h1 {
+  font-size: var(--fs-heading);
+  font-weight: 800;
+  color: #ffffff;
+
+  margin-top: 9rem;
+  margin-bottom: 1.7rem;
+}
+
+header p {
+  font-size: var(--fs-body);
+  color: #d9d9d9;
+
+  margin-bottom: 8rem;
+}
+
+.card span {
+  color: #090039;
+  font-size: var(--fs-body);
+  font-weight: 400;
+
+  background-color: var(--fc-primary);
+  border-radius: 2rem;
+  padding: 0rem 1.6rem;
+  height: 3.8rem;
+
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.card p {
+  color: #ffffff;
+  font-size: 4rem;
+  font-weight: 800;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.card {
+  position: relative;
+
+  transition: transform 0.2s;
+}
+
+.card img {
+  height: 41.6rem;
+  margin-bottom: 3.2rem;
+  border-radius: 1.2rem;
+
+  /* Encaixar imagem */
+  object-fit: cover;
+}
+
+.card p {
+  position: absolute;
+  bottom: 5.2rem;
+  left: 2.8rem;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 640px) {
+  .page {
+    max-width: 117rem;
+    padding: 0 5rem;
+  }
+  main {
+    display: grid;
+    gap: 3rem;
+    grid-template-areas:
+      'A B'
+      'C D';
+  }
+}
+
+@media (min-width: 930px) {
+  :root {
+    --fs-heading: 5.6rem;
+    --fs-body: 1.6rem;
+  }
+
+  main {
+    display: grid;
+    gap: 3rem;
+    grid-template-areas:
+      'A B B'
+      'C C D';
+  }
+
+  main div:nth-child(1) {
+    grid-area: A;
+  }
+  main div:nth-child(2) {
+    grid-area: B;
+  }
+  main div:nth-child(3) {
+    grid-area: C;
+  }
+  main div:nth-child(4) {
+    grid-area: D;
+  }
+}
